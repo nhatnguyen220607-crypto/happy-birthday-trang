@@ -76,5 +76,18 @@ document.getElementById('btn-meteors').addEventListener('click', () => {
   if (window.launchMeteors) window.launchMeteors(10);
 });
 
+/* ════ Remove Netlify badge ════ */
+function killNetlifyBadge() {
+  document.querySelectorAll('[class*="netlify"], [id*="netlify"], netlify-drawer, [data-netlify-badge], iframe[src*="netlify"]').forEach(el => el.remove());
+  document.querySelectorAll('div, button, a').forEach(el => {
+    if (el.textContent && el.textContent.includes('Powered by Netlify')) {
+      const parent = el.closest('[style*="fixed"]') || el.parentElement || el;
+      parent.remove();
+    }
+  });
+}
+killNetlifyBadge();
+setInterval(killNetlifyBadge, 400);
+
 /* ════ Boot ════ */
 initLanding();
