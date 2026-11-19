@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#05050a" />
+  <meta name="description" content="Happy Birthday Đào Thu Trang - 24/11" />
+  <title>🎂 Happy Birthday Đào Thu Trang</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ★ Shared canvas layers -->
+  <canvas id="star-canvas"></canvas>
+  <canvas id="planet-canvas"></canvas>
+  <canvas id="cursor-canvas"></canvas>
+
+  <!-- ═══ Intro click-to-begin screen ═══ -->
+  <div id="intro-screen">
+    <h2>Đào Thu Trang</h2>
+    <p>✦ 24 / 11 ✦</p>
+    <p class="tap-hint">Get start</p>
+  </div>
+
+  <!-- ═══ Mini navigation bar ═══ -->
+  <nav class="mini-nav" id="mini-nav">
+    <button data-page="home"     class="active">Page</button>
+    <button data-page="timeline"          >Timeline</button>
+    <button data-page="wish"              >Letter</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       PAGE 1 – Cosmic Landing
+  ════════════════════════════════════════════ -->
+  <section id="page-home" class="page active">
+    <div class="landing-content">
+      <span class="hb-label">✦ &nbsp;Happy Birthday&nbsp; ✦</span>
+      <h1 class="name">Đào Thu Trang</h1>
+      <p class="date-display">2 4 &nbsp;/&nbsp; 1 1</p>
+
+      <div class="nov-calendar">
+        <div class="cal-title">November</div>
+        <div class="cal-grid" id="cal-grid">
+          <div class="cal-day-header">CN</div>
+          <div class="cal-day-header">T2</div>
+          <div class="cal-day-header">T3</div>
+          <div class="cal-day-header">T4</div>
+          <div class="cal-day-header">T5</div>
+          <div class="cal-day-header">T6</div>
+          <div class="cal-day-header">T7</div>
+        </div>
+      </div>
+
+      <div class="landing-buttons">
+        <button class="glass-btn" id="btn-to-timeline">Memory</button>
+        <button class="glass-btn" id="btn-to-wish">Letter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PAGE 2 – Timeline
+  ════════════════════════════════════════════ -->
+  <section id="page-timeline" class="page">
+    <div class="tl-line"></div>
+    <div class="tl-wrapper" id="tl-wrapper"></div>
+    <div class="tl-progress" id="tl-progress">1 / 10</div>
+    <div class="tl-controls" id="tl-controls">
+      <button class="glass-btn" id="btn-prev">← Back</button>
+      <button class="glass-btn" id="btn-next">Next →</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PAGE 3 – Wishes / Letter
+  ════════════════════════════════════════════ -->
+  <section id="page-wish" class="page">
+
+    <!-- Glass letter card -->
+    <div class="wish-card">
+      <h2 class="letter-title">Gửi Đào Thu Trang (Trang Trề)</h2>
+      <div id="letter-body"></div>
+    </div>
+
+    <!-- Cake + blow button -->
+    <div class="cake-section">
+      <div class="cake-wrap" id="cake-wrap">
+        <div class="cake-icing" id="cake-icing">
+          <!-- Each candle has a .flame child and a .glow child -->
+          <div class="candle" id="c1">
+            <div class="glow"></div>
+            <div class="flame"></div>
+          </div>
+          <div class="candle" id="c2">
+            <div class="glow"></div>
+            <div class="flame"></div>
+          </div>
+          <div class="candle" id="c3">
+            <div class="glow"></div>
+            <div class="flame"></div>
+          </div>
+        </div>
+        <div class="cake-top"></div>
+        <div class="cake-body"></div>
+      </div>
+
+      <button class="glass-btn" id="btn-blow">🎂 Ước &amp; Thổi nến</button>
+      <p class="wish-message" id="wish-msg">
+        ✨ Chúc mọi điều ước của Trang đều thành sự thật! ✨
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ═══ Floating Magic Bar ═══ -->
+  <div class="magic-bar" id="magic-bar">
+    <button id="btn-fireworks" title="Bắn pháo hoa">🎆</button>
+    <button id="btn-meteors"   title="Mưa sao băng">☄️</button>
+    <button id="btn-music"     title="Bật/Tắt nhạc">🎵</button>
+  </div>
+
+  <script src="js/stars.js"></script>
+  <script src="js/landing.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/wishes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

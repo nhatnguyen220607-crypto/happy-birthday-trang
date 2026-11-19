@@ -1,0 +1,206 @@
+/* ============================================================
+   BASE.CSS – Reset, utilities, shared components
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #05050a;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+/* ---- SPA page containers ---- */
+.page {
+  position: fixed;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.page.active {
+  display: flex;
+  animation: fadeInPage 0.7s ease forwards;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Glass buttons ---- */
+.glass-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 10px;
+  color: #fff;
+  padding: 0.6rem 1.3rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.glass-btn:hover {
+  background: rgba(255,215,0,0.14);
+  border-color: #ffd700;
+  box-shadow: 0 0 16px rgba(255,215,0,0.3);
+  transform: translateY(-2px);
+}
+
+.glass-btn:active { transform: translateY(0); }
+
+/* ---- Floating Magic Bar ---- */
+.magic-bar {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 9999;
+}
+
+.magic-bar button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15,15,30,0.75);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: all 0.22s ease;
+  color: #fff;
+}
+
+.magic-bar button:hover {
+  border-color: #ffd700;
+  background: rgba(255,215,0,0.15);
+  transform: scale(1.12);
+}
+
+.magic-bar button.music-on {
+  border-color: #ffd700;
+  background: rgba(255,215,0,0.15);
+  box-shadow: 0 0 10px rgba(255,215,0,0.3);
+  animation: spinBtn 3s linear infinite;
+}
+
+@keyframes spinBtn {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Mini navigation bar (top-center) ---- */
+.mini-nav {
+  position: fixed;
+  top: 0.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 9999;
+}
+
+.mini-nav button {
+  background: rgba(10,10,24,0.72);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 20px;
+  color: rgba(255,255,255,0.65);
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+}
+
+.mini-nav button:hover,
+.mini-nav button.active {
+  color: #ffd700;
+  border-color: rgba(255,215,0,0.6);
+  background: rgba(255,215,0,0.08);
+}
+
+/* ---- Shared canvas layers ---- */
+#star-canvas,
+#planet-canvas,
+#cursor-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+#star-canvas   { z-index: 0; }
+#planet-canvas { z-index: 1; }
+#cursor-canvas { z-index: 10001; }
+
+/* ---- Intro click screen ---- */
+#intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  background: radial-gradient(ellipse at center, #0d1021 0%, #05050a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  animation: introPulse 2s ease-in-out infinite alternate;
+}
+
+#intro-screen h2 {
+  font-family: 'Lauren', 'Great Vibes', cursive;
+  font-size: clamp(2rem, 7vw, 4rem);
+  color: #fff;
+  text-shadow: 0 0 30px rgba(255,215,0,0.5);
+}
+
+#intro-screen p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+}
+
+#intro-screen .tap-hint {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: rgba(255,215,0,0.6);
+  animation: blinkHint 1.4s ease-in-out infinite;
+}
+
+@keyframes blinkHint {
+  0%,100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+@keyframes introPulse {
+  from { background: radial-gradient(ellipse at center, #0d1021 0%, #05050a 100%); }
+  to   { background: radial-gradient(ellipse at center, #131630 0%, #05050a 100%); }
+}
