@@ -634,8 +634,8 @@
   .landing-buttons { flex-direction: column; align-items: center; }
 
   .milestone-card { width: 42vw; }
-  .tl-controls    { gap: 0.5rem; bottom: 1.2rem; }
-  .tl-progress    { bottom: 5rem; }
+  .tl-controls    { gap: 0.5rem; bottom: calc(env(safe-area-inset-bottom, 0px) + 4.2rem); }
+  .tl-progress    { bottom: calc(env(safe-area-inset-bottom, 0px) + 7.2rem); }
 
   #page-wish      { gap: 0.8rem; padding: 3.2rem 0.8rem 0.8rem; }
   .wish-card      { padding: 1rem 1rem 1.1rem; }
@@ -643,6 +643,7 @@
   .wish-line      { font-size: 0.8rem; line-height: 1.6; }
 
   .finale-grid    { gap: 4px; }
+  .finale-actions { bottom: calc(env(safe-area-inset-bottom, 0px) + 3.8rem); }
   .finale-actions .glass-btn { font-size: 0.7rem; padding: 0.45rem 0.8rem; }
 }
 

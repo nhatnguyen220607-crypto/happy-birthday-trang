@@ -157,6 +157,18 @@ body {
 #planet-canvas { z-index: 1; }
 #cursor-canvas { z-index: 10001; }
 
+/* ---- Hide Netlify drawer / badge widget ---- */
+iframe#netlify-drawer,
+#netlify-drawer,
+div[data-netlify-deploy-id],
+.netlify-badge,
+[class*="netlify-drawer"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* ---- Intro click screen ---- */
 #intro-screen {
   position: fixed;
